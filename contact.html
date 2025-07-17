@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Contact Form</title>
+</head>
+<body oncontextmenu="return false">
+  <header>
+    <h1><strong>Contact Us</strong></h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="./index.html#About-LTS">About LTS</a></li>
+        <li><a href="./index.html#Our-Menu">Our Menu</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <p>
+      <abbr title="Secret Password">SP</abbr>: Hi! This is the sample page for the Taco Shop.
+    </p>
+
+    <div id="flagBox" class="hidden">[click & highlight me]</div>
+
+    <img src="img/tacos_close_up_400x260.png" alt="tacos_closeup">
+    <figcaption>Little Taco Shop Tacos</figcaption>
+    <h2>Our Contact Form</h2>
+
+    
+    <form action="http://httpbin.org/get" method="get">
+        <fieldset><legend>Send Us A Message</legend>
+        <p><label for="name">Name:</label>
+        <input type="text" placeholder="your name" autocomplete="on" autocorrect="on"></p>
+
+        <p>
+            <label for="mail">Email:</label>
+            <input type="email" placeholder="your email" autocomplete="on" autocorrect="on">
+        </p>
+        <p>
+            <label for="message">Your Message: </label>
+            <br>
+            <textarea name="message" id="message" placeholder="Type your message here" cols="30" rows="10"></textarea>
+        </p>
+        <br>
+        <button type="submit" formaction="https://httpbin.org/post" formmethod="post">Submit</button>
+        <button type="reset" formaction="https://httpbin.org/post" formmethod="post">Reset</button>
+    
+        </fieldset>
+    </form>
+
+    <h2>Our Location</h2>
+
+    <address>555 Taco Temptation lane, Suite T <br> Kansar City, Rajamannar Road, D/No:3-5-164</address>
+    Phone:
+    <a href="tel:+916300871684">+91 6300871684</a>
+    <hr>
+    Copyright &copy; The Little Taco Shop
+
+  </main>
+
+  
+
+  <script>
+    // Block F12, Ctrl+Shift+I, Ctrl+U
+    document.addEventListener('keydown', function (e) {
+      if (
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) || // Ctrl+Shift+I
+        (e.ctrlKey && (e.key === 'U' || e.key === 'u')) ||               // Ctrl+U
+        (e.key === 'F12')                                               // F12
+      ) {
+        e.preventDefault();
+        alert("Developer tools are disabled on this page.");
+      }
+    });
+
+    // Load the flag only after selection (mouseup)
+    const flagBox = document.getElementById("flagBox");
+
+    flagBox.addEventListener("mouseup", async () => {
+      if (flagBox.dataset.loaded) return;
+
+      try {
+        const res = await fetch("/flag.txt");
+        const flag = await res.text();
+        flagBox.textContent = flag;
+        flagBox.style.color = "transparent"; // still hidden
+        flagBox.dataset.loaded = true;
+      } catch (err) {
+        flagBox.textContent = "Failed to load flag.";
+        flagBox.style.color = "red";
+      }
+    });
+  </script>
+    <footer>
+        <p align="right"><a href="#">Back to top</a></p>
+    </footer>
+</body>
+</html>

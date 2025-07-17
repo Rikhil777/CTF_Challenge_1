@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Store Hours</title>
+
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      alert("Right-click is disabled on this page.");
+    });
+
+    
+    document.addEventListener('keydown', function (e) {
+      
+      if (
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) || // Ctrl+Shift+I
+        (e.ctrlKey && (e.key === 'U' || e.key === 'u')) ||               // Ctrl+U
+        (e.key === 'F12')
+      ) {
+        e.preventDefault();
+        alert("Developer tools are disabled on this page.");
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Little Taco Shop Hours</h1>
+
+  <nav>
+    <ul>
+      <li><a href="./index.html#About-LTS">About LTS</a></li>
+      <li><a href="./index.html#Our-Menu">Our Menu</a></li>
+      <li><a href="./contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <img src="img/tacos_tray_400x267.png" alt="A tray of tasty tacos" />
+  <figcaption>A Tray of Tasty Tacos</figcaption>
+
+  <hr />
+  <strong><h4>Hey Fool Flag is not here. Keep Searching deep.</h4></strong>
+  <article>
+    <p>We are open 7 days a week!</p>
+    <dl>
+      <dt>Sunday-Thursday</dt>
+      <dd>11am-9pm</dd>
+      <dt>Friday-Saturday</dt>
+      <dd>11am-11pm</dd>
+    </dl>
+  </article>
+   
+  <hr />
+
+  <footer>
+    <p align="right"><a href="#">Back to top</a></p>
+    <p>Copyright &copy; The Little Taco Shop</p>
+  </footer>
+</body>
+</html>
